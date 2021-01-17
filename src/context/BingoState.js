@@ -4,8 +4,8 @@ import {
   initializeCard,
   cardTextGenerationCells,
   winnerCombinations,
-  removeWinnerRow,
-  doesUserWon,
+  //removeWinnerRow,
+  //doesUserWon,
 } from './bingoFunctions';
 
 export const BingoState = ({ children }) => {
@@ -31,7 +31,7 @@ export const BingoState = ({ children }) => {
     console.log('The card state is', state.card);
   };
 
-  const updateWinner = () => {
+  /*  const updateWinner = () => {
     let winnerRow = undefined;
     let isWinner;
     winnerComb.forEach((element) => {
@@ -48,11 +48,11 @@ export const BingoState = ({ children }) => {
       state.isWinner = false;
     }
     removeWinnerRow(winnerRow, winnerComb);
-  };
+  }; */
 
-  const getWinner = () => {
+  /* const getWinner = () => {
     return state.isWinner;
-  };
+  }; */
   return (
     <BingoContext.Provider
       value={{ card: state.card, isWinner: state.isWinner, handleOnClickCell }}
