@@ -1,0 +1,73 @@
+@import './src/assets/variables';
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  cursor: pointer;
+  width: 87%;
+  border: none;
+  background-color: transparent;
+  font-size: 16px;
+  text-align: center;
+  height: 100px;
+  transition: all 1s linear;
+  &.matched {
+    transition: all 1s linear;
+    text-decoration: line-through;
+    color: $baby-pink;
+    //animation: matched 2.5s linear 1s forwards;
+  }
+}
+
+span {
+  position: absolute;
+  background-color: $baby-pink;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border-radius: 50%;
+  animation: animate 1.5s ease-in-out forwards,
+    opacity-flow 1.2s cubic-bezier(0.2, 0, 0.79, 0.99) forwards;
+}
+
+.center {
+  background-color: $keppel-soft;
+  border: 2px solid $keppel;
+  color: $keppel;
+  border-radius: 50%;
+  height: 123px;
+}
+
+@keyframes animate {
+  from {
+    width: 0;
+    height: 0;
+  }
+  to {
+    width: 500px;
+    height: 500px;
+  }
+}
+
+@keyframes opacity-flow {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes matched {
+  from {
+    background-color: transparent;
+  }
+  to {
+    background-color: $dark-slate-blue-soft;
+  }
+}

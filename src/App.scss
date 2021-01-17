@@ -1,8 +1,4 @@
-/* SCSS HEX */
-$lavender-blush: #fae8ebff;
-$baby-pink: #f6cacaff;
-$keppel: #5fb49cff;
-$dark-slate-blue: #414288ff;
+@import './src/assets/variables';
 
 .App {
   width: 100vw;
@@ -17,101 +13,9 @@ $dark-slate-blue: #414288ff;
   display: flex;
   justify-content: center;
   align-items: center;
+}
 
-  .grid-container {
-    width: 48%;
-    height: 85%;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    justify-items: baseline;
-    align-items: baseline;
-    transform: rotate(-3deg);
-    background-color: $lavender-blush;
-  }
-
-  .item-box {
-    width: 100%;
-    height: 100%;
-    box-sizing: border-box;
-    padding: 8px;
-    border: 1px solid $baby-pink;
-  }
-  #item1 {
-    grid-area: 1 / 1 / 2 / 2;
-  }
-  #item2 {
-    grid-area: 1 / 2 / 2 / 3;
-  }
-  #item3 {
-    grid-area: 1 / 3 / 2 / 4;
-  }
-  #item4 {
-    grid-area: 1 / 4 / 2 / 5;
-  }
-  #item5 {
-    grid-area: 1 / 5 / 2 / 6;
-  }
-  #item6 {
-    grid-area: 2 / 1 / 3 / 2;
-  }
-  #item7 {
-    grid-area: 2 / 2 / 3 / 3;
-  }
-  #item8 {
-    grid-area: 2 / 3 / 3 / 4;
-  }
-  #item9 {
-    grid-area: 2 / 4 / 3 / 5;
-  }
-  #item10 {
-    grid-area: 2 / 5 / 3 / 6;
-  }
-  #item11 {
-    grid-area: 3 / 1 / 4 / 2;
-  }
-  #item12 {
-    grid-area: 3 / 2 / 4 / 3;
-  }
-  #item13 {
-    grid-area: 3 / 3 / 4 / 4;
-  }
-  #item14 {
-    grid-area: 3 / 4 / 4 / 5;
-  }
-  #item15 {
-    grid-area: 3 / 5 / 4 / 6;
-  }
-  #item16 {
-    grid-area: 4 / 1 / 5 / 2;
-  }
-  #item17 {
-    grid-area: 4 / 2 / 5 / 3;
-  }
-  #item18 {
-    grid-area: 4 / 3 / 5 / 4;
-  }
-  #item19 {
-    grid-area: 4 / 4 / 5 / 5;
-  }
-  #item20 {
-    grid-area: 4 / 5 / 5 / 6;
-  }
-  #item21 {
-    grid-area: 5 / 1 / 6 / 2;
-  }
-  #item22 {
-    grid-area: 5 / 2 / 6 / 3;
-  }
-  #item23 {
-    grid-area: 5 / 3 / 6 / 4;
-  }
-  #item24 {
-    grid-area: 5 / 4 / 6 / 5;
-  }
-  #item25 {
-    grid-area: 5 / 5 / 6 / 6;
-  }
+* {
+  margin: 0;
+  box-sizing: border-box;
 }
