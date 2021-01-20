@@ -28,7 +28,6 @@ export const BingoState = ({ children }) => {
   const handleOnClickCell = (cellText) => {
     const inx = card.findIndex((cell) => cell.cellText === cellText);
     state.card[inx].matched = !state.card[inx].matched;
-    console.log('The card state is', state.card);
   };
 
   /*  const updateWinner = () => {

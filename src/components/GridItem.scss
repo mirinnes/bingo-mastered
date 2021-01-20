@@ -12,8 +12,11 @@
   background-color: transparent;
   font-size: 16px;
   text-align: center;
-  height: 100px;
   transition: all 1s linear;
+  &:active,
+  &:focus {
+    outline: none;
+  }
   &.matched {
     transition: all 1s linear;
     text-decoration: line-through;
@@ -42,12 +45,12 @@ span {
 
 @keyframes animate {
   from {
-    width: 0;
-    height: 0;
+    width: 0px;
+    height: 0px;
   }
   to {
-    width: 500px;
-    height: 500px;
+    width: 350px;
+    height: 350px;
   }
 }
 
