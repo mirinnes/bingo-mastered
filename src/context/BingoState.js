@@ -4,8 +4,8 @@ import {
   initializeCard,
   cardTextGenerationCells,
   winnerCombinations,
-  //removeWinnerRow,
-  //doesUserWon,
+  removeWinnerRow,
+  doesUserWon,
 } from './bingoFunctions';
 
 export const BingoState = ({ children }) => {
@@ -14,47 +14,57 @@ export const BingoState = ({ children }) => {
   let card = initializeCard(centerInx);
   let cardContent = cardTextGenerationCells(card, centerInx);
 
+  // Bingo winner data
+  // (winnerComb is created by copy of cardContent, the anchor to the memory is the same
+  // i.e: represents the same object - what happens to cardContent' objects will affect winner's)
+  let winnerComb = winnerCombinations(cardContent, centerInx);
+
   // Bingo state context
   const state = {
     card: cardContent,
+    winner: winnerComb,
     isWinner: false,
   };
 
-  // Bingo winner data
-  const winnerComb = winnerCombinations(cardContent, centerInx);
-  console.log('las combinaciones para ganar son', winnerComb);
-
   // Bingo events handlers
   const handleOnClickCell = (cellText) => {
-    const inx = card.findIndex((cell) => cell.cellText === cellText);
+    let inx = state.card.findIndex((cell) => cell.cellText === cellText);
     state.card[inx].matched = !state.card[inx].matched;
+    checkWinner();
   };
 
-  /*  const updateWinner = () => {
+  const checkWinner = () => {
     let winnerRow = undefined;
     let isWinner;
-    winnerComb.forEach((element) => {
-      let aux = doesUserWon(element);
-      if (aux) {
-        winnerRow = element;
+    state.winner.forEach((arr) => {
+      let userWon = doesUserWon(arr);
+      if (userWon) {
+        winnerRow = arr;
         isWinner = true;
       }
     });
     if (isWinner) {
+      console.log('Is winner!');
       state.isWinner = true;
+      state.winner = removeWinnerRow(winnerRow, state.winner);
       isWinner = !isWinner;
     } else {
       state.isWinner = false;
     }
-    removeWinnerRow(winnerRow, winnerComb);
-  }; */
+  };
 
-  /* const getWinner = () => {
+  const getWinner = () => {
     return state.isWinner;
-  }; */
+  };
+
   return (
     <BingoContext.Provider
-      value={{ card: state.card, isWinner: state.isWinner, handleOnClickCell }}
+      value={{
+        card: state.card,
+        isWinner: state.isWinner,
+        handleOnClickCell,
+        getWinner,
+      }}
     >
       {children}
     </BingoContext.Provider>

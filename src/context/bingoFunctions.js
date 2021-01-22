@@ -6,7 +6,7 @@ export const initializeCard = ({ x, y }) => {
       row: x,
       col: y,
       isCenter: true,
-      cellText: 'Press Me!',
+      cellText: 'BINGO',
     },
   ];
   return cardInit;
@@ -92,6 +92,7 @@ export const removeWinnerRow = (item, array) => {
   if (i !== -1) {
     array.splice(i, 1);
   }
+  return array;
 };
 
 export const doesUserWon = (arr) => {

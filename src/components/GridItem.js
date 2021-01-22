@@ -33,14 +33,15 @@ const makeRipple = (e, matched) => {
   }
 };
 
-function GridItem({ cellText, id, isMatched }) {
+function GridItem({ cellText, id, isWinner, setIsWinner }) {
   const [matched, setMatched] = useState(false);
-  const { handleOnClickCell } = useContext(bingoContext);
+  const { handleOnClickCell, getWinner } = useContext(bingoContext);
 
   const handleOnClickContainer = (e) => {
     handleOnClickCell(cellText);
     setMatched(!matched);
     makeRipple(e, matched);
+    setIsWinner(getWinner);
   };
   return (
     <button
