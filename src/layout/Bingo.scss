@@ -2,7 +2,10 @@
 
 .grid-container {
   height: 90%;
-  width: 51%;
+  width: auto;
+  @media (min-device-width: 1080px) {
+    width: 51%;
+  }
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
