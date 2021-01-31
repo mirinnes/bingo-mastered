@@ -28,7 +28,7 @@ export const cellTexts = [
 
 // Arrray with random indexes
 let arrr = [];
-while (arrr.length < 24) {
+while (arrr.length < cellTexts.length) {
   let r = Math.floor(Math.random() * 24);
   if (arrr.indexOf(r) === -1) arrr.push(r);
 }

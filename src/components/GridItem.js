@@ -33,7 +33,7 @@ const makeRipple = (e, matched) => {
   }
 };
 
-function GridItem({ cellText, id, isWinner, setIsWinner }) {
+function GridItem({ cellText, id, onClickCenter, setIsWinner }) {
   const [matched, setMatched] = useState(false);
   const { handleOnClickCell, getWinner } = useContext(bingoContext);
 
@@ -43,16 +43,24 @@ function GridItem({ cellText, id, isWinner, setIsWinner }) {
     makeRipple(e, matched);
     setIsWinner(getWinner);
   };
+
+  const handleOnClickCenter = () => onClickCenter();
   return (
-    <button
-      id={id}
-      className={`container ${id === 'itemCenter' ? 'center' : ''} ${
-        matched ? 'matched' : ''
-      }`}
-      onClick={id === 'itemCenter' ? null : (e) => handleOnClickContainer(e)}
-    >
-      {cellText}
-    </button>
+    <>
+      <button
+        id={id}
+        className={`container ${id === 'itemCenter' ? 'center' : ''} ${
+          matched ? 'matched' : ''
+        }`}
+        onClick={
+          id === 'itemCenter'
+            ? () => handleOnClickCenter()
+            : (e) => handleOnClickContainer(e)
+        }
+      >
+        {cellText}
+      </button>
+    </>
   );
 }
 

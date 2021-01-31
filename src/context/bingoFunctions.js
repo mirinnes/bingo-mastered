@@ -6,7 +6,7 @@ export const initializeCard = ({ x, y }) => {
       row: x,
       col: y,
       isCenter: true,
-      cellText: 'BINGO',
+      cellText: 'PLAY BINGO',
     },
   ];
   return cardInit;
@@ -104,4 +104,9 @@ export const doesUserWon = (arr) => {
     userWon = true;
   }
   return userWon;
+};
+
+export const randomPhrase = () => {
+  let r = Math.floor(Math.random() * (cellTexts.length + 1));
+  return cellTexts[r];
 };

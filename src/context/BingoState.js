@@ -6,6 +6,7 @@ import {
   winnerCombinations,
   removeWinnerRow,
   doesUserWon,
+  randomPhrase,
 } from './bingoFunctions';
 
 export const BingoState = ({ children }) => {
@@ -57,6 +58,10 @@ export const BingoState = ({ children }) => {
     return state.isWinner;
   };
 
+  const getRandomPhrase = () => {
+    return randomPhrase();
+  };
+
   return (
     <BingoContext.Provider
       value={{
@@ -64,6 +69,7 @@ export const BingoState = ({ children }) => {
         isWinner: state.isWinner,
         handleOnClickCell,
         getWinner,
+        getRandomPhrase,
       }}
     >
       {children}

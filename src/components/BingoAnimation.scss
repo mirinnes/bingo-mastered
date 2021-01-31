@@ -1,0 +1,63 @@
+@import './src/assets/variables';
+
+/* .container-animation {
+} */
+
+.cls-1,
+.cls-2 {
+  fill: none;
+  stroke-miterlimit: 10;
+  stroke-width: 3px;
+}
+.cls-1 {
+  stroke: #fff;
+}
+.cls-2 {
+  stroke: transparent;
+}
+.marker {
+  animation: move 5s linear reverse infinite;
+  cursor: pointer;
+  &.c1 {
+    offset-path: path(
+      'M1104.94,526.06C1104.94,656.92,998.86,763,868,763S631.06,656.92,631.06,526.06c0-123.42,94.37-224.8,214.88-235.92v0L846.47,190'
+    );
+  }
+  &.c2 {
+    offset-path: path('M735 606 A1,1 0 1,1 820, 606 A1,1 0 1,1 735, 606');
+    animation-duration: 1s;
+  }
+  &.c3 {
+    offset-path: path('M822 649 A1,1 0 1,1 910, 649 A1,1 0 1,1 822, 649');
+    animation-duration: 1.3s;
+  }
+  &.c4 {
+    offset-path: path('M908 606 A1,1 0 1,1 994, 606 A1,1 0 1,1 908, 606');
+    animation-duration: 5s;
+  }
+  &:hover {
+    animation: scale 1s linear forwards;
+  }
+}
+
+@keyframes move {
+  100% {
+    offset-distance: 100%;
+  }
+}
+@keyframes body-rotate {
+  from {
+    transform: rotateZ(-5deg);
+  }
+  to {
+    transform: rotateZ(5deg);
+  }
+}
+@keyframes scale {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(10);
+  }
+}
